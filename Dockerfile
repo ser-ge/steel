@@ -6,6 +6,6 @@ RUN pipenv lock --requirements > requirements.txt
 
 COPY requirements.txt /tf/home/
 RUN ["apt-get", "install", "-y", "libsm6", "libxext6", "libxrender-dev"]
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 
