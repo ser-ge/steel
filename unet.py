@@ -43,7 +43,13 @@ trainddir = 'data/train_images/'
 # In[8]:
 
 
-tf.test.is_gpu_available(cuda_only=True)
+
+if tf.test.is_gpu_available(cuda_only=True):
+    print('Found GPU')
+else:
+    print('No GPU!')
+        
+    
 
 
 # In[9]:
@@ -337,10 +343,10 @@ stop = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=7)
 checkpoint_path = "cp-{epoch}.ckpt"
 checkpoint_dir = os.path.dirname(checkpoint_path)
 
-save= tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, verbose=True, save_freq=5)
+save= tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path, verbose=True, save_freq='epoch')
 
 model = unet((img_h,img_w,1), num_output_masks=4)
-optimizer = tf.optimizers.Adam(learning_rate=0.05)
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.05)
 loss = binary_crossentropy
 model.compile(optimizer=optimizer,loss=loss, metrics=['binary_crossentropy'])
 
