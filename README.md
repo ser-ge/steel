@@ -1,5 +1,5 @@
 # Severstal: Steel Defect Detection
 
-Image segementation in tensorflow for (Kaggle Competition)[https://www.kaggle.com/c/severstal-steel-defect-detection]
+Image segementation in tensorflow for this [Kaggle Competition](https://www.kaggle.com/c/severstal-steel-defect-detection)
 
-Unet and ResUnet
+Unet and ResUnet architectures. 
